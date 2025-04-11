@@ -19,12 +19,13 @@ export const handler = async (event, context) => {
         return 'Invalid input';
     }
 
-    console.log(`Body: ${json.body}`);
-    const body = json.body;
-    console.log(`Issue: ${body.issue}`);
-    console.log(`Html: ${body.issue.html_url}`);
+  //  console.log(`Body: ${json.body}`);
+  //  const body = json.body;
+    const issue = json.issue;
+    console.log(`Issue: ${issue}`);
+    console.log(`Html: ${issue.html_url}`);
     const payload = JSON.stringify({
-        text: `Issue Created: ${body.issue.html_url}`
+        text: `Issue Created: ${issue.html_url}`
     });
 
     const webhookUrl = process.env.SLACK_URL;
